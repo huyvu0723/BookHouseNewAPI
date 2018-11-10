@@ -11,11 +11,11 @@ namespace BookHouseNewAPI.Controllers
 {
     public class AccountController : ApiController
     {
-        SqlConnection conn = new SqlConnection("Server=HUYVU\\HUYVU;Database=BookHouse;user id =sa; password=Minhlahuy0^^;");
+        SqlConnection conn = new SqlConnection(Constants.CONNECTION_BOOKHOUSE);
         SqlDataReader reader;
         Account acc;
         [HttpGet]
-        [Route("api/redis/Login/{user}/{pass}")]
+        [Route("api/Account/Login/{user}/{pass}")]
         public IHttpActionResult Login(string user, string pass)
         {
             try
@@ -51,7 +51,7 @@ namespace BookHouseNewAPI.Controllers
 
 
         [HttpGet]
-        [Route("api/redis/GetUser/{user}")]
+        [Route("api/Account/GetUser/{user}")]
         public IHttpActionResult GetUser(string user)
         {
             try
@@ -95,7 +95,7 @@ namespace BookHouseNewAPI.Controllers
 
 
         [HttpPost]
-        [Route("api/redis/AddUser/{user}/{pass}/{name}")]
+        [Route("api/Account/AddUser/{user}/{pass}/{name}")]
         public IHttpActionResult AddUser(string user, string pass, string name)
         {
             try
@@ -127,7 +127,7 @@ namespace BookHouseNewAPI.Controllers
         }
 
         [HttpPost]
-        [Route("api/redis/chargeBalance/{accId}/{amount}")]
+        [Route("api/Account/chargeBalance/{accId}/{amount}")]
         public IHttpActionResult chargeBalance(int accId, double amount)
         {
             try

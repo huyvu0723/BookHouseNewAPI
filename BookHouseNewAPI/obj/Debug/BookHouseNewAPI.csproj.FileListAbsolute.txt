@@ -77,3 +77,4 @@ D:\Study\ChuyenNganh\Ky_07\PRM\Project\API\C#\BookHouseNewAPI\BookHouseNewAPI\ob
 D:\Study\ChuyenNganh\Ky_07\PRM\Project\API\C#\BookHouseNewAPI\BookHouseNewAPI\obj\Debug\BookHouseNewAPI.csproj.CopyComplete
 D:\Study\ChuyenNganh\Ky_07\PRM\Project\API\C#\BookHouseNewAPI\BookHouseNewAPI\obj\Debug\BookHouseNewAPI.dll
 D:\Study\ChuyenNganh\Ky_07\PRM\Project\API\C#\BookHouseNewAPI\BookHouseNewAPI\obj\Debug\BookHouseNewAPI.pdb
+D:\Study\ChuyenNganh\Ky_07\PRM\Project\API\C#\BookHouseNewAPI\BookHouseNewAPI\obj\Debug\BookHouseNewAPI.csprojAssemblyReference.cache
