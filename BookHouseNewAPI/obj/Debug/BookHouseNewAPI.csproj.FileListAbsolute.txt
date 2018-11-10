@@ -73,7 +73,6 @@ D:\Study\ChuyenNganh\Ky_07\PRM\Project\API\C#\BookHouseNewAPI\BookHouseNewAPI\bi
 D:\Study\ChuyenNganh\Ky_07\PRM\Project\API\C#\BookHouseNewAPI\BookHouseNewAPI\bin\System.Web.Http.xml
 D:\Study\ChuyenNganh\Ky_07\PRM\Project\API\C#\BookHouseNewAPI\BookHouseNewAPI\bin\System.Web.Http.WebHost.xml
 D:\Study\ChuyenNganh\Ky_07\PRM\Project\API\C#\BookHouseNewAPI\BookHouseNewAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Study\ChuyenNganh\Ky_07\PRM\Project\API\C#\BookHouseNewAPI\BookHouseNewAPI\obj\Debug\BookHouseNewAPI.csprojAssemblyReference.cache
 D:\Study\ChuyenNganh\Ky_07\PRM\Project\API\C#\BookHouseNewAPI\BookHouseNewAPI\obj\Debug\BookHouseNewAPI.csproj.CoreCompileInputs.cache
 D:\Study\ChuyenNganh\Ky_07\PRM\Project\API\C#\BookHouseNewAPI\BookHouseNewAPI\obj\Debug\BookHouseNewAPI.csproj.CopyComplete
 D:\Study\ChuyenNganh\Ky_07\PRM\Project\API\C#\BookHouseNewAPI\BookHouseNewAPI\obj\Debug\BookHouseNewAPI.dll

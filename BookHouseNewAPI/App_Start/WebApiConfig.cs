@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Swashbuckle.Application;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -14,7 +15,6 @@ namespace BookHouseNewAPI
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-
             config.Formatters.JsonFormatter.SupportedMediaTypes
             .Add(new MediaTypeHeaderValue("text/html"));
             var json = config.Formatters.JsonFormatter;
