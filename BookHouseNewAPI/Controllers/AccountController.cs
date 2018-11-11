@@ -196,5 +196,71 @@ namespace BookHouseNewAPI.Controllers
             }
             return Ok(true);
         }
+
+        [HttpPost]
+        [Route("api/Account/rateBook/{accId}/{bookID}/{rate}")]
+        public IHttpActionResult rateBook(double rate,int accId, int bookId)
+        {
+            try
+            {
+                conn.Open();
+                string query = "update BookCase set Rate = " + rate + " where accId =" + accId + " and bookId = " + bookId ;
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                if(cmd.ExecuteNonQuery() > 0) {
+                    return Ok(true);
+                }
+            }
+            catch (Exception e)
+            {
+                return Ok(false);
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return Ok(false);
+        }
+
+        [HttpPost]
+        [Route("api/Account/insertRateBook/{accId}/{bookID}/{rate}")]
+        public IHttpActionResult insertRateBook(double rate, int accId, int bookId)
+        {
+            try
+            {
+                conn.Open();
+               
+                string query = "insert into BookCase(accId, bookId, Rate) values(" + accId + ", " + bookId + ", " + rate + ")";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                if(cmd.ExecuteNonQuery() > 0)
+                {
+                    return Ok(true);
+                }
+            }
+            catch (Exception e)
+            {
+                return Ok(false);
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return Ok(false);
+        }
     }
 }
