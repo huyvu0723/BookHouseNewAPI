@@ -159,5 +159,42 @@ namespace BookHouseNewAPI.Controllers
             }
             return Ok(true);
         }
+
+        [HttpPost]
+        [Route("api/Account/BuyPack/{accId}/{packId}/{day}/{amount}")]
+        public IHttpActionResult BuyPack(int accId,int packId, int day, double amount)
+        {
+            try
+            {
+                conn.Open();
+                string query = "Update Account Set accWallet = accWallet - "+amount+", accDateEndVip = Case "
+                    + "When (accDateEndVip >= GETDATE() ) Then DATEADD(day, "+day+", CAST(accDateEndVip as datetime)) "
+                    + "When (accDateEndVip < GETDATE() ) Then DATEADD(day, "+day+", GETDATE()) "
+                    + "end Where accID = "+accId;
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                string currentTime = DateTime.Now.ToString();
+                currentTime = "'" + currentTime + "'";
+                query = "Insert into[Transaction](pvId, accId, tranType, tranAmount, tranDatePaid) VALUES(" + packId+"," + accId + ", 0, " + amount + ", " + currentTime + ")";
+                cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                return Ok(false);
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return Ok(true);
+        }
     }
 }
