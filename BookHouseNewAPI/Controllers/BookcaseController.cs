@@ -134,7 +134,7 @@ namespace BookHouseNewAPI.Controllers
             return Ok(false);
         }
 
-        [HttpGet]
+        [HttpDelete]
         [Route("api/Bookcase/deleteBookInBookcase/{accId}/{bookId}")]
         public IHttpActionResult deleteBookInBookcase(int accId, int bookId)
         {
@@ -199,7 +199,7 @@ namespace BookHouseNewAPI.Controllers
             return NotFound();
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("api/Bookcase/UpdateBookMar/{mark}/{accId}/{bookId}")]
         public IHttpActionResult UpdateBookMar(int mark, int accId, int bookId)
         {
