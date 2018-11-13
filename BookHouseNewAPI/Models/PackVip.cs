@@ -10,15 +10,16 @@ namespace BookHouseNewAPI.Models
         public PackVip()
         {
         }
-        public PackVip(int pvid, int bookdate, decimal pvcost)
+
+        public PackVip(int pvId, int bookDate, double pvCost)
         {
-            this.pvid = pvid;
-            this.bookdate = bookdate;
-            this.pvcost = pvcost;
+            this.pvId = pvId;
+            this.bookDate = bookDate;
+            this.pvCost = pvCost;
         }
 
-        public int pvid { get; set; }
-        public int bookdate { get; set; }
-        public decimal pvcost { get; set; }
+        public int pvId { get; set; }
+        public int bookDate { get; set; }
+        public double pvCost { get; set; }
     }
 }

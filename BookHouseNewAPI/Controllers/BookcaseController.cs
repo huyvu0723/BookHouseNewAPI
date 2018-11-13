@@ -28,7 +28,7 @@ namespace BookHouseNewAPI.Controllers
         }
 
         [HttpPost]
-        [Route("api/Bookcase/postBookcase/{accId}/{bookId}")]
+        [Route("api/Bookcase/PostBookcase/{accId}/{bookId}")]
         public IHttpActionResult AddUser(int accId, int bookId)
         {
             try
@@ -50,7 +50,7 @@ namespace BookHouseNewAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/Bookcase/getBookCaseByUserId/{id}")]
+        [Route("api/Bookcase/GetBookCaseByUserId/{id}")]
         public IHttpActionResult GetBookCaseByUserId(string id)
         {
             try
@@ -109,7 +109,7 @@ namespace BookHouseNewAPI.Controllers
 
 
         [HttpGet]
-        [Route("api/Bookcase/checkBookcase/{accId}/{bookId}")]
+        [Route("api/Bookcase/CheckBookcase/{accId}/{bookId}")]
         public IHttpActionResult CheckBookcase(int accId, int bookId)
         {
             try
@@ -134,9 +134,9 @@ namespace BookHouseNewAPI.Controllers
             return Ok(false);
         }
 
-        [HttpDelete]
-        [Route("api/Bookcase/deleteBookInBookcase/{accId}/{bookId}")]
-        public IHttpActionResult deleteBookInBookcase(int accId, int bookId)
+        [HttpGet]
+        [Route("api/Bookcase/DeleteBookInBookcase/{accId}/{bookId}")]
+        public IHttpActionResult DeleteBookInBookcase(int accId, int bookId)
         {
             try
             {
@@ -162,8 +162,8 @@ namespace BookHouseNewAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/Bookcase/getBookcaseRate/{id}")]
-        public IHttpActionResult getBookcaseRate(string id)
+        [Route("api/Bookcase/GetBookcaseRate/{id}")]
+        public IHttpActionResult GetBookcaseRate(string id)
         {
             try
             {
@@ -172,7 +172,7 @@ namespace BookHouseNewAPI.Controllers
                 String url = "select AVG(Rate) as rate, count(bookId) as countNum from BookCase where bookId = " + id;
                 SqlCommand cmd = new SqlCommand(url, conn);
                 reader = cmd.ExecuteReader();
-                List<Bookcase> lstBookCase = new List<Bookcase>();
+                
                 if (reader.Read())
                 {
                     bookcase = new Bookcase();
@@ -183,8 +183,7 @@ namespace BookHouseNewAPI.Controllers
                     {
                         bookcase.countDownload = reader.GetInt32(1);
                     }
-                    lstBookCase.Add(bookcase);
-                    return Ok(lstBookCase);
+                    return Ok(bookcase);
                 }
                 
             }
@@ -200,7 +199,7 @@ namespace BookHouseNewAPI.Controllers
             return NotFound();
         }
 
-        [HttpPut]
+        [HttpPost]
         [Route("api/Bookcase/UpdateBookMar/{mark}/{accId}/{bookId}")]
         public IHttpActionResult UpdateBookMar(int mark, int accId, int bookId)
         {
