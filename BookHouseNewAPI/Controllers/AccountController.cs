@@ -98,6 +98,7 @@ namespace BookHouseNewAPI.Controllers
         [Route("api/Account/AddUser/{user}/{pass}/{name}")]
         public IHttpActionResult AddUser(string user, string pass, string name)
         {
+          
             try
             {
                 conn.Open();
@@ -106,10 +107,14 @@ namespace BookHouseNewAPI.Controllers
                 name = "'" + name + "'";
                 string query = "insert into Account (accUsername, accPassword, accFullname) Values (" + user + "," + pass + "," + name + ")";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
+                if(cmd.ExecuteNonQuery() > 0)
+                {
+                    return Ok(true);
+                }
             }
             catch (Exception e)
             {
+           
                 return Ok(false);
             }
             finally
@@ -123,12 +128,13 @@ namespace BookHouseNewAPI.Controllers
                     conn.Close();
                 }
             }
-            return Ok(true);
+           
+            return Ok(false);
         }
 
         [HttpPost]
-        [Route("api/Account/chargeBalance/{accId}/{amount}")]
-        public IHttpActionResult chargeBalance(int accId, double amount)
+        [Route("api/Account/ChargeBalance/{accId}/{amount}")]
+        public IHttpActionResult ChargeBalance(int accId, double amount)
         {
             try
             {
@@ -198,8 +204,8 @@ namespace BookHouseNewAPI.Controllers
         }
 
         [HttpPost]
-        [Route("api/Account/rateBook/{accId}/{bookID}/{rate}")]
-        public IHttpActionResult rateBook(double rate,int accId, int bookId)
+        [Route("api/Account/RateBook/{accId}/{bookID}/{rate}")]
+        public IHttpActionResult RateBook(double rate,int accId, int bookId)
         {
             try
             {
@@ -230,8 +236,8 @@ namespace BookHouseNewAPI.Controllers
         }
 
         [HttpPost]
-        [Route("api/Account/insertRateBook/{accId}/{bookID}/{rate}")]
-        public IHttpActionResult insertRateBook(double rate, int accId, int bookId)
+        [Route("api/Account/InsertRateBook/{accId}/{bookID}/{rate}")]
+        public IHttpActionResult InsertRateBook(double rate, int accId, int bookId)
         {
             try
             {
@@ -261,6 +267,6 @@ namespace BookHouseNewAPI.Controllers
                 }
             }
             return Ok(false);
-        }
+        }        
     }
 }

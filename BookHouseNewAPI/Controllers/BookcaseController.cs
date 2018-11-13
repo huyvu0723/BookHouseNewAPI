@@ -28,7 +28,7 @@ namespace BookHouseNewAPI.Controllers
         }
 
         [HttpPost]
-        [Route("api/Bookcase/postBookcase/{accId}/{bookId}")]
+        [Route("api/Bookcase/PostBookcase/{accId}/{bookId}")]
         public IHttpActionResult AddUser(int accId, int bookId)
         {
             try
@@ -50,7 +50,7 @@ namespace BookHouseNewAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/Bookcase/getBookCaseByUserId/{id}")]
+        [Route("api/Bookcase/GetBookCaseByUserId/{id}")]
         public IHttpActionResult GetBookCaseByUserId(string id)
         {
             try
@@ -109,7 +109,7 @@ namespace BookHouseNewAPI.Controllers
 
 
         [HttpGet]
-        [Route("api/Bookcase/checkBookcase/{accId}/{bookId}")]
+        [Route("api/Bookcase/CheckBookcase/{accId}/{bookId}")]
         public IHttpActionResult CheckBookcase(int accId, int bookId)
         {
             try
@@ -135,8 +135,8 @@ namespace BookHouseNewAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/Bookcase/deleteBookInBookcase/{accId}/{bookId}")]
-        public IHttpActionResult deleteBookInBookcase(int accId, int bookId)
+        [Route("api/Bookcase/DeleteBookInBookcase/{accId}/{bookId}")]
+        public IHttpActionResult DeleteBookInBookcase(int accId, int bookId)
         {
             try
             {
@@ -162,8 +162,8 @@ namespace BookHouseNewAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/Bookcase/getBookcaseRate/{id}")]
-        public IHttpActionResult getBookcaseRate(string id)
+        [Route("api/Bookcase/GetBookcaseRate/{id}")]
+        public IHttpActionResult GetBookcaseRate(string id)
         {
             try
             {
