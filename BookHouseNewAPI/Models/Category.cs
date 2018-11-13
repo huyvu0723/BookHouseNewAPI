@@ -10,7 +10,7 @@ namespace BookHouseNewAPI.Models
         public Category()
         {
         }
-        public Category(int catId, string catName, string catParent)
+        public Category(int catId, string catName, int catParent)
         {
             this.catId = catId;
             this.catName = catName;
@@ -19,6 +19,6 @@ namespace BookHouseNewAPI.Models
 
         public int catId { get; set; }
         public string catName { get; set; }
-        public string catParent { get; set; }
+        public int catParent { get; set; }
     }
 }

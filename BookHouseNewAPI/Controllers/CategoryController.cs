@@ -39,11 +39,7 @@ namespace BookHouseNewAPI.Controllers
                     }
                     if (!reader.IsDBNull(2))
                     {
-                        cat.catParent = reader.GetInt32(2)+"";
-                    }
-                    else
-                    {
-                        cat.catParent = null;
+                        cat.catParent = reader.GetInt32(2);
                     }
                     lstCat.Add(cat);
                 }

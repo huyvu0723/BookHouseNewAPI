@@ -60,7 +60,7 @@ namespace BookHouseNewAPI.Controllers
                 user = "'" + user + "'";
                 SqlCommand cmd = new SqlCommand("select * from Account where accUsername = "+ user, conn);
                 reader = cmd.ExecuteReader();
-
+                List<Account> lstAccount = new List<Account>();
                 while (reader.Read())
                 {
                     acc = new Account();
@@ -71,7 +71,8 @@ namespace BookHouseNewAPI.Controllers
                     acc.accWallet = reader.GetDecimal(4);
                     acc.accDateEndVip = reader.GetDateTime(5);
                     acc.accRole = reader.GetString(6);
-                    return Ok(acc);
+                    lstAccount.Add(acc);
+                    return Ok(lstAccount);
                 }
             }
             catch (Exception e)
@@ -91,7 +92,44 @@ namespace BookHouseNewAPI.Controllers
             }
             return NotFound();
         }
+        [HttpGet]
+        [Route("api/Account/GetPackVip")]
+        public IHttpActionResult GetPackVip()
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select * From PackVip", conn);
+                reader = cmd.ExecuteReader();
+                List<PackVip> lstPV = new List<PackVip>();
+                while (reader.Read())
+                {
+                    PackVip pv = new PackVip();
+                    pv.pvid = reader.GetInt32(0);
+                    pv.bookdate = reader.GetInt32(1);
+                    pv.pvcost = reader.GetDecimal(2);
+                    lstPV.Add(pv);
+                }
 
+                return Ok(lstPV);
+            }
+            catch (Exception e)
+            {
+                return NotFound();
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return NotFound();
+        }
 
 
         [HttpPost]

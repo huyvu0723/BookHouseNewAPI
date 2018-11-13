@@ -129,6 +129,7 @@
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Bookcase.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\PackVip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

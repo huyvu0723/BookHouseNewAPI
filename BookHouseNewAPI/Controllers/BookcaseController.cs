@@ -172,7 +172,7 @@ namespace BookHouseNewAPI.Controllers
                 String url = "select AVG(Rate) as rate, count(bookId) as countNum from BookCase where bookId = " + id;
                 SqlCommand cmd = new SqlCommand(url, conn);
                 reader = cmd.ExecuteReader();
-                
+                List<Bookcase> lstBookCase = new List<Bookcase>();
                 if (reader.Read())
                 {
                     bookcase = new Bookcase();
@@ -183,7 +183,8 @@ namespace BookHouseNewAPI.Controllers
                     {
                         bookcase.countDownload = reader.GetInt32(1);
                     }
-                    return Ok(bookcase);
+                    lstBookCase.Add(bookcase);
+                    return Ok(lstBookCase);
                 }
                 
             }
