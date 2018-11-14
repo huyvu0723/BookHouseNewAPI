@@ -203,7 +203,7 @@ namespace BookHouseNewAPI.Controllers
             return Ok(true);
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("api/Account/RateBook/{accId}/{bookID}/{rate}")]
         public IHttpActionResult RateBook(double rate,int accId, int bookId)
         {
